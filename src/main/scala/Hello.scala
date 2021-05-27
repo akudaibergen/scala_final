@@ -1,3 +1,4 @@
+import javax.swing.tree.TreeNode
 
 object Hello extends App {
   //Valid Anagram
@@ -176,12 +177,25 @@ object Hello extends App {
 
     output
   }
+//  var s = sortString("leetcode")
 
-  var s = sortString("leetcode")
-  println(s)
+  //class tree node
+  class TreeNode(_value: Int = 0, _left: TreeNode = null, _right: TreeNode = null) {
+    var value: Int = _value
+    var left: TreeNode = _left
+    var right: TreeNode = _right
+  }
 
-//  leetcode
-//  cdelottoled
-//  leetcode
-//  cdelotee
+  def maxDepth(root: TreeNode): Int = {
+    if (root == null)
+      return 0
+    var rootLeft = root.left
+    var rootRight = root.right
+
+    //by reqursion to get count right max and left max
+    var output = Math.max(maxDepth(rootLeft), maxDepth(rootRight))
+    //output return +1 because when it go first value return not zero , 0+1 and 1
+    output + 1
+  }
+
 }
